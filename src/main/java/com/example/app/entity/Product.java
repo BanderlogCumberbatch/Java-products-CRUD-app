@@ -53,6 +53,10 @@ public class Product {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public void setArticle(String articleNumber) {
+        this.articleNumber = articleNumber;
+    }
             
     public void setName(String name) {
         this.name = name;
