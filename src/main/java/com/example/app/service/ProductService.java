@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
-    private static ProductRepository productRepository;
+    private ProductRepository productRepository;
 
     @Autowired
     public ProductService(ProductRepository productRepository) {
-        ProductService.productRepository = productRepository;
+        this.productRepository = productRepository;
     }
 
     // CRUD методы
@@ -23,11 +23,11 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public static Product getProductById(Long id) {
+    public Product getProductById(Long id) {
         return productRepository.findById(id).orElse(null);
     }
 
-    public static Product createProduct(Product Product) {
+    public Product createProduct(Product Product) {
         return productRepository.save(Product);
     }
 

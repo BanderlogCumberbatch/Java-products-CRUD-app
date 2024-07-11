@@ -6,28 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@EntityScan(basePackages = {"com.example.app.entity"})
 public class AppApplication {
+	private ProductService productService;
 
 	@Autowired
 	public void MyApp(ProductService productService) {
+		this.productService = productService;
 	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(AppApplication.class, args);
 	}
-
+/*
 	@Bean
 	public CommandLineRunner demo() {
 		return args -> {
-			// Здесь можно добавить код для тестирования вашего приложения
-			// Например, вызвать методы вашего сервиса для создания, чтения, обновления и
-			// удаления данных
-			// и выводить результаты на консоль
-
-			// Пример:
+			// Тесты:
 			Product product = new Product();
 			product.setArticle("AN011");
 			product.setName("Product 1");
@@ -35,12 +35,13 @@ public class AppApplication {
 			product.setCategory("Category 1");
 			product.setPrice(10.);
 			product.setQuantity(5);
-			ProductService.createProduct(product);
+			productService.createProduct(product);
 
-			Product savedProduct = ProductService.getProductById(product.getId());
+			Product savedProduct = productService.getProductById(product.getId());
 			System.out.println("Saved Product: " + savedProduct);
 
 		};
 	}
+*/
 
 }
