@@ -29,6 +29,7 @@ public class AppApplication {
 
 			// Пример:
 			Product product = new Product();
+			product.setArticle("AN011");
 			product.setName("Product 1");
 			product.setDescription("Description 1");
 			product.setCategory("Category 1");
