@@ -1,6 +1,6 @@
 package com.example.app;
 
-import com.example.app.entity.Product;
+import com.example.app.model.Product;
 import com.example.app.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,12 +11,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@EntityScan(basePackages = {"com.example.app.entity"})
 public class AppApplication {
-	private ProductService productService;
+	private final ProductService productService;
 
 	@Autowired
-	public void MyApp(ProductService productService) {
+	public AppApplication(ProductService productService) {
 		this.productService = productService;
 	}
 

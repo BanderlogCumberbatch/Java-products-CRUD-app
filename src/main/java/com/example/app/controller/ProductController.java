@@ -1,6 +1,6 @@
 package com.example.app.controller;
 
-import com.example.app.entity.Product;
+import com.example.app.model.Product;
 import com.example.app.service.ProductService;
 
 import java.util.List;

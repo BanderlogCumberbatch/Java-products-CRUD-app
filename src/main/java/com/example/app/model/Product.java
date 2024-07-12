@@ -1,4 +1,4 @@
-package com.example.app.entity;
+package com.example.app.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
