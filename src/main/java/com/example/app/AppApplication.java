@@ -9,12 +9,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@EnableJpaRepositories("com.example.app.repository")
+@ComponentScan(basePackages = { "com.example.app.service" })
+@EntityScan("com.example.app.model")   
 public class AppApplication {
-	private final ProductService productService;
-
 	@Autowired
+	private final ProductService productService;
 	public AppApplication(ProductService productService) {
 		this.productService = productService;
 	}
@@ -22,7 +25,7 @@ public class AppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AppApplication.class, args);
 	}
-/*
+
 	@Bean
 	public CommandLineRunner demo() {
 		return args -> {
@@ -41,6 +44,6 @@ public class AppApplication {
 
 		};
 	}
-*/
+
 
 }

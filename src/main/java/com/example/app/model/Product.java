@@ -1,11 +1,22 @@
 package com.example.app.model;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.Table;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.GenerationType;
 
 @Entity
 @Table(name = "products")
 public class Product {
+    // Конструктор без аргументов
+    public Product() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
