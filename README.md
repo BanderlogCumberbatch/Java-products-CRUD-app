@@ -1,2 +1,2 @@
 # Java-products-CRUD-app
-[]([http://localhost:8080/products)
+[Products]([http://localhost:8080/products)
