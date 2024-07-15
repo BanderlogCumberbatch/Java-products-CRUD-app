@@ -2,11 +2,11 @@ package com.example.app.controller;
 
 import com.example.app.model.Product;
 import com.example.app.service.ProductService;
-
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/products")
@@ -19,9 +19,13 @@ public class ProductController {
 
     // Методы для обработки запросов
 
-    @GetMapping
-    public List<Product> getAllProducts() {
-        return productService.getAllProducts();
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView getAllProducts() {
+        List<Product> products = productService.getAllProducts();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("products");
+        modelAndView.addObject("products", products);
+        return modelAndView;
     }
 
     @GetMapping("/{id}")
