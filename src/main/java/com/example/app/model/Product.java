@@ -65,11 +65,11 @@ public class Product {
         this.id = id;
     }
 
-    public String getArticle() {
+    public String getArticleNumber() {
         return articleNumber;
     }
 
-    public void setArticle(String articleNumber) {
+    public void setArticleNumber(String articleNumber) {
         this.articleNumber = articleNumber;
     }
 
