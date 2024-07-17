@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/products")
@@ -34,7 +35,7 @@ public class ProductController {
 
     @GetMapping("/update/{id}")
     @Tag(name="Страница изменения", description="Страница для ввода информации для изменения записи с определённым id")
-    public ModelAndView editPage(@PathVariable Long id) {
+    public ModelAndView editPage(@PathVariable UUID id) {
         Product product = productService.getProductById(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editPage");
@@ -72,7 +73,7 @@ public class ProductController {
 
     @GetMapping("/delete/{id}")
     @Tag(name="Удалить продукт", description="Удаления записи с определённым id и переадресация на начальную страницу")
-    public ModelAndView deleteProduct(@PathVariable Long id) {
+    public ModelAndView deleteProduct(@PathVariable UUID id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/products");
         productService.deleteProduct(id);

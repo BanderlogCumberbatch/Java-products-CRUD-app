@@ -1,6 +1,8 @@
 package com.example.app.model;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
@@ -18,9 +20,9 @@ public class Product {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "product_id")
-    private Long id;
+    private UUID id;
     
     @Column(name = "article_number", unique = true)
     private String articleNumber; // Артикул
@@ -57,11 +59,11 @@ public class Product {
     }
     // Геттеры и сеттеры
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
             
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
