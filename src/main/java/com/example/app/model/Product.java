@@ -3,21 +3,22 @@ package com.example.app.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Column;
-import jakarta.persistence.Table;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
 @Table(name = "products")
 public class Product {
-    // Конструктор без аргументов
-    public Product() {
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -56,72 +57,6 @@ public class Product {
     @PreUpdate
     protected void onUpdate() {
         lastModified = LocalDateTime.now();
-    }
-    // Геттеры и сеттеры
-
-    public UUID getId() {
-        return id;
-    }
-            
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getArticleNumber() {
-        return articleNumber;
-    }
-
-    public void setArticleNumber(String articleNumber) {
-        this.articleNumber = articleNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-            
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getLastModified() {
-        return lastModified;
     }
 
 }
