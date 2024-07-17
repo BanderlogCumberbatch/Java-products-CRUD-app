@@ -1,20 +1,27 @@
 package com.example.app.controller;
 
-import com.example.app.model.Product;
-
-import com.example.app.service.ProductService;
-
-import io.swagger.v3.oas.annotations.tags.Tag;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.app.model.Product;
+import com.example.app.service.ProductService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/products")
+@Validated
 public class ProductController {
     @Autowired
     private ProductService productService;
@@ -45,7 +52,7 @@ public class ProductController {
 
     @PostMapping("/update")
     @Tag(name="Изменить продукт", description="Изменение записи и переадресация на начальную страницу")
-    public ModelAndView editProduct(@ModelAttribute("product") Product product) {
+    public ModelAndView editProduct(@Valid @ModelAttribute("product") Product product) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/products");
         productService.updateProduct(product);
@@ -64,7 +71,7 @@ public class ProductController {
 
     @PostMapping("/create")
     @Tag(name="Добавить продукт", description="Добавление записи и переадресация на начальную страницу")
-    public ModelAndView addProduct(@ModelAttribute("product") Product product) {
+    public ModelAndView addProduct(@Valid @ModelAttribute("product") Product product) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/products");
         productService.createProduct(product);
