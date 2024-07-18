@@ -4,6 +4,9 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 
+/**
+ * Конфигурация Swagger.
+ */
 @OpenAPIDefinition(
         info = @Info(
                 title = "Java Products CRUD-app",
@@ -15,7 +18,6 @@ import io.swagger.v3.oas.annotations.info.Info;
                 )
         )
 )
-
 public class OpenApiConfig {
 
 }

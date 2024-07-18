@@ -51,7 +51,7 @@ public class ProductServiceTest {
     public void testUpdateProduct() {
         when(productRepository.save(product)).thenReturn(product);
 
-        Product savedProduct = productService.updateProduct(product);
+        Product savedProduct = productService.saveProduct(product);
 
         assertNotNull(savedProduct);
         assertEquals(product.getName(), savedProduct.getName());

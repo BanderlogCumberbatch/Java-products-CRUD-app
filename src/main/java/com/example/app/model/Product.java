@@ -19,6 +19,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Представляет сущность продукта.
+ */
 @Entity
 @Data
 @NoArgsConstructor

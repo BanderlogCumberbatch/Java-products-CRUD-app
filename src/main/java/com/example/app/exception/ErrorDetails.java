@@ -1,5 +1,8 @@
 package com.example.app.exception;
 
+/**
+ * Детали ошибок.
+ */
 public class ErrorDetails {
     private String message;
     private String details;

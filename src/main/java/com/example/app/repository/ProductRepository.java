@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import com.example.app.model.Product;
 
+/**
+ * Интерфейс репозитория для объектов Product.
+ */
 @Repository
 public interface ProductRepository extends JpaRepository<Product, UUID> {
     // методы запросов
