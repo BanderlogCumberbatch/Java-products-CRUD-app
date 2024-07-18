@@ -1,13 +1,14 @@
 package com.example.app.service;
 
-import com.example.app.model.Product;
-import com.example.app.repository.ProductRepository;
-
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import com.example.app.model.Product;
+import com.example.app.repository.ProductRepository;
 
 @Service
 public class ProductService {
@@ -20,7 +21,7 @@ public class ProductService {
     // CRUD методы
 
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        return productRepository.findAll(Sort.by("articleNumber"));
     }
 
     public Product getProductById(UUID id) {
